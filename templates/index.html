@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Addiction Prediction MVP</title>
+    <title>PLANT AC POWER PREDICTION</title>
     <style>
         /* The Egoist Dark Mode Architecture */
         body {
@@ -101,45 +101,33 @@
 
 <body>
     <div class="matrix-container">
-        <h1>Addiction Core Analyzer</h1>
+        <h1>Plant AC power Analyzer</h1>
         <form method="POST">
 
             <div class="form-group">
-                <label for="Daily_Usage_Hours">Daily Screen Time (Hours)</label>
-                <input type="number" name="Daily_Usage_Hours" step="any" id="Daily_Usage_Hours" placeholder="e.g., 6.5" required>
+                <label for="AMBIENT_TEMPERATURE">Ambient Tempreature: <span id="AMBIENT_TEMPERATURE_SLIDER">42</span></label>
+                <input type="range" id="AMBIENT_TEMPERATURE" name="AMBIENT_TEMPERATURE" min="20" max="68" step="1" value="42"
+       oninput="document.getElementById('AMBIENT_TEMPERATURE_SLIDER').innerText = this.value">
             </div>
 
             <div class="form-group">
-                <label for="Phone_Checks_Per_Day">Phone Checks Per Day</label>
-                <input type="number" name="Phone_Checks_Per_Day" step="any" id="Phone_Checks_Per_Day" placeholder="e.g., 85" required>
+                <label for="IRRADIATION">Irradiation: <span id="slider-val">0.5</span></label>
+                <input type="range" id="IRRADIATION" name="IRRADIATION" min="0" max="1.1" step="0.01" value="0.5"
+       oninput="document.getElementById('slider-val').innerText = this.value">
             </div>
 
             <div class="form-group">
-                <label for="Apps_Used_Daily">Apps Used Daily</label>
-                <input type="number" name="Apps_Used_Daily" step="any" id="Apps_Used_Daily" placeholder="e.g., 12" required>
+                <label for="MODULE_TEMPREATURE">Module Tempreature: <span id="ModuleTemp_SLIDER">24</span></label>
+                <input type="range" id="MODULE_TEMPREATURE" name="MODULE_TEMPREATURE" min="20" max="38" step="1" value="24"
+       oninput="document.getElementById('ModuleTemp_SLIDER').innerText = this.value">
             </div>
 
-            <div class="form-group">
-                <label for="Time_on_Social_Media">Time on Social Media (Hours)</label>
-                <input type="number" name="Time_on_Social_Media" step="any" id="Time_on_Social_Media" placeholder="e.g., 3.2" required>
-            </div>
-
-            <div class="form-group">
-                <label for="Time_on_Gaming">Time on Gaming (Hours)</label>
-                <input type="number" name="Time_on_Gaming" step="any" id="Time_on_Gaming" placeholder="e.g., 1.5" required>
-            </div>
-
-            <div class="form-group">
-                <label for="Sleep_Hours">Sleep Hours</label>
-                <input type="number" name="Sleep_Hours" step="any" id="Sleep_Hours" placeholder="e.g., 5.5" required>
-            </div>
-
-            <button type="submit" class="deploy-btn">Run Prediction Matrix</button>
+            <button type="submit" class="deploy-btn">Run Prediction</button>
         </form>
 
         {% if prediction is not none %}
             <div class="result-matrix">
-                <h3>{{ prediction }}% ADDICTED</h3>
+                <h3>{{ prediction }} kW</h3>
             </div>
         {% endif %}
     </div>
